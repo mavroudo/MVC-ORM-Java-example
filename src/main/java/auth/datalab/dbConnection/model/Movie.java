@@ -2,6 +2,8 @@ package auth.datalab.dbConnection.model;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 @Table(name = "Movie", catalog = "dvdclub")
 @Entity
@@ -16,15 +18,18 @@ public class Movie implements Serializable {
 
     private int year;
 
-    public Movie(int ID, String title, int year) {
-        this.ID = ID;
-        this.title = title;
-        this.year = year;
+    @OneToMany(mappedBy = "primaryKey.movie",cascade = CascadeType.ALL)
+    private List<TS> tsList= new ArrayList<>();
+
+    public List<TS> getTsList() {
+        return tsList;
     }
 
-    public Movie(String title, int year) {
-        this.title = title;
-        this.year = year;
+    public void setTsList(List<TS> tsList) {
+        this.tsList = tsList;
+    }
+
+    public Movie() {
     }
 
     public int getID() {

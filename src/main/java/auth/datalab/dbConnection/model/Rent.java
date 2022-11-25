@@ -33,14 +33,6 @@ public class Rent implements Serializable {
         this.primaryKey = primaryKey;
     }
 
-    @Transient
-    public Customer getCustomer(){
-        return getPrimaryKey().getCustomer();
-    }
-    @Transient
-    public DVD getDvd(){
-        return getPrimaryKey().getDvd();
-    }
 
     public Date getStart() {
         return start;

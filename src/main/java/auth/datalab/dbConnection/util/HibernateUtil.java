@@ -36,8 +36,9 @@ public class HibernateUtil {
                 configuration.addAnnotatedClass(Customer.class);
                 configuration.addAnnotatedClass(Movie.class);
                 configuration.addAnnotatedClass(DVD.class);
-                configuration.addAnnotatedClass(RentId.class);
                 configuration.addAnnotatedClass(Rent.class);
+                configuration.addAnnotatedClass(TS.class);
+                configuration.addAnnotatedClass(Contributor.class);
                 ServiceRegistry serviceRegistry = new StandardServiceRegistryBuilder()
                         .applySettings(configuration.getProperties()).build();
 
