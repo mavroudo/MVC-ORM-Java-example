@@ -19,6 +19,13 @@ public class TS {
     @EmbeddedId
     private TSId primaryKey;
 
+    public TS() {
+    }
+
+    public TS(Movie m, Contributor c,String role) {
+        this.role = role;
+        this.primaryKey=new TSId(c,m);
+    }
 
     public String getRole() {
         return role;

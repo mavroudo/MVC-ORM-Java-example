@@ -32,6 +32,12 @@ public class Movie implements Serializable {
     public Movie() {
     }
 
+    public Movie(String title, int year, List<TS> tsList) {
+        this.title = title;
+        this.year = year;
+        this.tsList = tsList;
+    }
+
     public int getID() {
         return ID;
     }

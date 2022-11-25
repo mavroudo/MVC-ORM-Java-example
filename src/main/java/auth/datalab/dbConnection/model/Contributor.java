@@ -29,6 +29,10 @@ public class Contributor {
     public Contributor() {
     }
 
+    public Contributor(String name) {
+        this.name = name;
+    }
+
     public int getID() {
         return ID;
     }

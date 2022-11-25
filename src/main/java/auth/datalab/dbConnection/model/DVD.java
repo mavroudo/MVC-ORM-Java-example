@@ -30,6 +30,16 @@ public class DVD implements Serializable {
     @OneToMany(mappedBy = "primaryKey.dvd",cascade = CascadeType.ALL)
     private List<Rent> rents = new ArrayList<>();
 
+    public DVD(Movie movie, String type, int quantity, int price, List<Rent> rents) {
+        this.movie = movie;
+        this.type = type;
+        this.quantity = quantity;
+        this.price = price;
+        this.rents = rents;
+    }
+
+    public DVD() {
+    }
 
     public List<Rent> getRents() {
         return rents;

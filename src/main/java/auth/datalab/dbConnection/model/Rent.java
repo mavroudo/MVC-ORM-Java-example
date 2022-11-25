@@ -5,7 +5,7 @@ import java.io.Serializable;
 import java.util.Date;
 
 @Entity
-@Table(name="rent",catalog = "dvdclub")
+@Table(name="Rent",catalog = "dvdclub")
 @AssociationOverrides({
         @AssociationOverride(name = "primaryKey.customer",
         joinColumns = @JoinColumn(name = "IDCustomer")),
@@ -20,7 +20,14 @@ public class Rent implements Serializable {
     private Date end;
 
 
+    public Rent() {
+    }
 
+    public Rent(Customer c, DVD d, Date start, Date end) {
+        this.start = start;
+        this.end = end;
+        this.primaryKey=new RentId(d,c);
+    }
 
     @EmbeddedId
     private RentId primaryKey = new RentId();

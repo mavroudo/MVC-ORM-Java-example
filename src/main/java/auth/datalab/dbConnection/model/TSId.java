@@ -17,6 +17,14 @@ public class TSId implements Serializable {
     @MapsId("IDMovie")
     private Movie movie;
 
+    public TSId() {
+    }
+
+    public TSId(Contributor contributor, Movie movie) {
+        this.contributor = contributor;
+        this.movie = movie;
+    }
+
     public Contributor getContributor() {
         return contributor;
     }

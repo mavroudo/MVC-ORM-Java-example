@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 
-@Table(name = "customer", catalog = "dvdclub")
+@Table(name = "Customer", catalog = "dvdclub")
 @Entity
 public class Customer implements Serializable {
 
@@ -30,6 +30,16 @@ public class Customer implements Serializable {
 
     @OneToMany(mappedBy = "primaryKey.customer", cascade = CascadeType.ALL)
     private List<Rent> rents = new ArrayList<Rent>();
+
+    public Customer() {
+    }
+
+    public Customer(String surname, String phone, String address, String number) {
+        this.surname = surname;
+        this.phone = phone;
+        this.address = address;
+        this.number = number;
+    }
 
     public int getID() {
         return ID;

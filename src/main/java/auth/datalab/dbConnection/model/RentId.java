@@ -16,6 +16,13 @@ public class RentId implements Serializable {
     @MapsId("IDCustomer")
     private Customer customer;
 
+    public RentId() {
+    }
+
+    public RentId(DVD dvd, Customer customer) {
+        this.dvd = dvd;
+        this.customer = customer;
+    }
 
     public DVD getDvd() {
         return dvd;
