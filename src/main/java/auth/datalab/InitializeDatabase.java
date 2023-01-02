@@ -7,11 +7,13 @@ import auth.datalab.dbConnection.model.DVD;
 import auth.datalab.dbConnection.model.Movie;
 import auth.datalab.dbConnection.util.HibernateUtil;
 import org.hibernate.Session;
+import org.hibernate.query.Query;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 import java.util.TimeZone;
 
 public class InitializeDatabase {
@@ -64,9 +66,13 @@ public class InitializeDatabase {
         tsDao.saveTS(2,1,"Σκηνοθέτης");
         tsDao.saveTS(2,3,"Ηθοποιός");
 
-//
-//        Customer customer = new Customer("Mavroudopoulos","1234567","Panepistimia","18");
-//        customerDao.saveCustomer(customer);
+        List<Customer> cs = customerDao.getAll();
+        List<Customer> cs2 = customerDao.basedOnName("Πα%");
+
+        Query queryLike = HibernateUtil.getSessionFactory().openSession()
+                .createSQLQuery("select title from Movie left outer join DVD on DVD.IDMovie = Movie.ID left outer join Rent on Rent.IDdvd = DVD.ID where Rent.IDdvd is null");
+        List<String> titles = (List<String>) queryLike.list();
+        System.out.println("hey");
 
 
 
