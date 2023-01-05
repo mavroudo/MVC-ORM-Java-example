@@ -18,6 +18,7 @@ import java.util.TimeZone;
 
 public class InitializeDatabase {
     public static void main(String[] args) throws ParseException {
+        HibernateUtil.getSessionFactory();
 
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         sdf.setTimeZone(TimeZone.getTimeZone("UTC"));
@@ -70,11 +71,8 @@ public class InitializeDatabase {
         List<Customer> cs2 = customerDao.basedOnName("Πα%");
 
         Query queryLike = HibernateUtil.getSessionFactory().openSession()
-                .createSQLQuery("select title from Movie left outer join DVD on DVD.IDMovie = Movie.ID left outer join Rent on Rent.IDdvd = DVD.ID where Rent.IDdvd is null");
+                .createSQLQuery("select Τίτλος from ΤΑΙΝΙΑ left outer join DVD on DVD.IDΤαινίας = ΤΑΙΝΙΑ.ID left outer join ΕΝΟΙΚΙΑΣΗ on ΕΝΟΙΚΙΑΣΗ.IDdvd = DVD.ID where ΕΝΟΙΚΙΑΣΗ.IDdvd is null");
         List<String> titles = (List<String>) queryLike.list();
-        System.out.println("hey");
-
-
 
     }
 }

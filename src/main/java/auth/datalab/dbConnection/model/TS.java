@@ -4,16 +4,16 @@ package auth.datalab.dbConnection.model;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "TS",catalog = "dvdclub")
+@Table(name = "ΤΣ",catalog = "dvdclub")
 @AssociationOverrides({
         @AssociationOverride(name="primaryKey.movie",
-        joinColumns = @JoinColumn(name = "IDMovie")),
+        joinColumns = @JoinColumn(name = "IDTαινίας")),
         @AssociationOverride(name = "primaryKey.contributor",
-        joinColumns = @JoinColumn(name = "IDContributor"))
+        joinColumns = @JoinColumn(name = "IDΣυντελεστή"))
 })
 public class TS {
 
-    @Column(length = 30)
+    @Column(length = 30, name = "Ρόλος")
     private String role;
 
     @EmbeddedId

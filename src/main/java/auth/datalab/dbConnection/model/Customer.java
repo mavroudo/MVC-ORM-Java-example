@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 
-@Table(name = "Customer", catalog = "dvdclub")
+@Table(name = "ΠΕΛΑΤΗΣ", catalog = "dvdclub")
 @Entity
 public class Customer implements Serializable {
 
@@ -16,16 +16,16 @@ public class Customer implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int ID;
 
-    @Column(length = 30, nullable = false)
+    @Column(length = 30, nullable = false, name = "Επίθετο")
     private String surname;
 
-    @Column(length = 30)
+    @Column(length = 30, name = "Τηλέφωνο")
     private String phone;
 
-    @Column(length = 30)
+    @Column(length = 30, name = "Οδός")
     private String address;
 
-    @Column(length = 10)
+    @Column(length = 10, name = "Αριθμός")
     private String number;
 
     @OneToMany(mappedBy = "primaryKey.customer", cascade = CascadeType.ALL)

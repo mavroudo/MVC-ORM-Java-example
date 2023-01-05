@@ -5,18 +5,19 @@ import java.io.Serializable;
 import java.util.Date;
 
 @Entity
-@Table(name="Rent",catalog = "dvdclub")
+@Table(name="ΕΝΟΙΚΙΑΣΗ",catalog = "dvdclub")
 @AssociationOverrides({
         @AssociationOverride(name = "primaryKey.customer",
-        joinColumns = @JoinColumn(name = "IDCustomer")),
+        joinColumns = @JoinColumn(name = "IDΠελάτη")),
         @AssociationOverride(name = "primaryKey.dvd",
         joinColumns = @JoinColumn(name = "IDdvd"))
 })
 public class Rent implements Serializable {
 
-    @Column(nullable = false)
+    @Column(nullable = false, name = "Από")
     private Date start;
 
+    @Column(name = "Έως")
     private Date end;
 
 

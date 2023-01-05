@@ -10,11 +10,11 @@ import java.io.Serializable;
 public class TSId implements Serializable {
 
     @ManyToOne(cascade = CascadeType.ALL)
-    @MapsId("IDContributor")
+//    @MapsId("IDΣυντελεστή")
     private Contributor contributor;
 
     @ManyToOne(cascade = CascadeType.ALL)
-    @MapsId("IDMovie")
+//    @MapsId("IDΤαινίας")
     private Movie movie;
 
     public TSId() {

@@ -16,14 +16,16 @@ public class DVD implements Serializable {
     private int ID;
 
     @ManyToOne
-    @JoinColumn(name="IDMovie")
+    @JoinColumn(name="IDΤαινίας")
     private Movie movie;
 
-    @Column(length = 4)
+    @Column(length = 4,name = "Τύπος")
     private String type;
 
+    @Column(name = "Ποσότητα")
     private int quantity;
 
+    @Column(name = "Τιμή")
     private int price;
 
 

@@ -10,10 +10,10 @@ import java.io.Serializable;
 public class RentId implements Serializable {
 
     @ManyToOne(cascade = CascadeType.ALL)
-    @MapsId("IDdvd")
+//    @MapsId("IDdvd")
     private DVD dvd;
     @ManyToOne(cascade = CascadeType.ALL)
-    @MapsId("IDCustomer")
+//    @MapsId("IDΠελάτη")
     private Customer customer;
 
     public RentId() {

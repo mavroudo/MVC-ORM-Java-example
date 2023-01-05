@@ -4,7 +4,7 @@ import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
-@Table(name = "Contributor", catalog = "dvdclub")
+@Table(name = "ΣΥΝΤΕΛΕΣΤΗΣ", catalog = "dvdclub")
 @Entity
 public class Contributor {
 
@@ -12,7 +12,7 @@ public class Contributor {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int ID;
 
-    @Column(length = 50)
+    @Column(length = 50,name = "Όνομα")
     private String name;
 
     @OneToMany(mappedBy = "primaryKey.contributor", cascade = CascadeType.ALL)

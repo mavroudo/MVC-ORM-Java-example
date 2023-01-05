@@ -5,7 +5,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-@Table(name = "Movie", catalog = "dvdclub")
+@Table(name = "ΤΑΙΝΙΑ", catalog = "dvdclub")
 @Entity
 public class Movie implements Serializable {
 
@@ -13,9 +13,10 @@ public class Movie implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int ID;
 
-    @Column(length = 100)
+    @Column(length = 100, name = "Τίτλος")
     private String title;
 
+    @Column(name = "Χρονιά")
     private int year;
 
     @OneToMany(mappedBy = "primaryKey.movie",cascade = CascadeType.ALL)
