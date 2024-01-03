@@ -19,16 +19,12 @@ public class HibernateUtil {
                 Configuration configuration = new Configuration();
                 //Hiberante settings instead of using an xml properties file
                 Properties settings= new Properties();
-                settings.put(Environment.DRIVER, "com.mysql.cj.jdbc.Driver");
-                settings.put(Environment.URL,"jdbc:mysql://localhost:3306/dvdclub?serverTimezone=UTC&useSSL=false&allowPublicKeyRetrieval=true");
-                settings.put(Environment.USER, "root");
-                settings.put(Environment.PASS, "root");
-                settings.put(Environment.DIALECT, "org.hibernate.dialect.MySQL5Dialect");
+                settings.put(Environment.DRIVER, "org.sqlite.JDBC");
+                settings.put(Environment.URL, "jdbc:sqlite:dvdClub.db");
+                settings.put(Environment.DIALECT, "org.sqlite.hibernate.dialect.SQLiteDialect");
 
                 settings.put(Environment.SHOW_SQL, "true");
-                settings.put(Environment.CURRENT_SESSION_CONTEXT_CLASS, "thread");
                 settings.put(Environment.HBM2DDL_AUTO, "create-drop");
-                System.out.println(Environment.HBM2DDL_AUTO);
 
                 configuration.setProperties(settings);
 
