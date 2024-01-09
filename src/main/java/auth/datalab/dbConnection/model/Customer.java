@@ -28,8 +28,8 @@ public class Customer implements Serializable {
     @Column(length = 10, name = "Αριθμός")
     private String number;
 
-    @OneToMany(mappedBy = "primaryKey.customer", cascade = CascadeType.ALL)
-    private List<Rent> rents = new ArrayList<Rent>();
+    @OneToMany(mappedBy = "primaryKey.customer", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    private List<Rent> rents;
 
     public Customer() {
     }

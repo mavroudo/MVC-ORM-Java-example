@@ -15,7 +15,7 @@ public class DVD implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int ID;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name="IDΤαινίας")
     private Movie movie;
 
@@ -29,7 +29,7 @@ public class DVD implements Serializable {
     private int price;
 
 
-    @OneToMany(mappedBy = "primaryKey.dvd",cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "primaryKey.dvd",cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private List<Rent> rents = new ArrayList<>();
 
     public DVD(Movie movie, String type, int quantity, int price, List<Rent> rents) {

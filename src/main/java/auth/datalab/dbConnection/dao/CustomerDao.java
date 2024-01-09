@@ -40,7 +40,8 @@ public class CustomerDao {
 
     public List<Customer> basedOnName(String pattern){
         Query queryLike = HibernateUtil.getSessionFactory().openSession()
-                .createSQLQuery("select * from ΠΕΛΑΤΗΣ where Επίθετο like :pattern");
+                .createSQLQuery("select * from ΠΕΛΑΤΗΣ where Επίθετο like :pattern")
+                .addEntity(Customer.class);
         queryLike.setParameter("pattern",pattern);
         return (List<Customer>) queryLike.list();
     }

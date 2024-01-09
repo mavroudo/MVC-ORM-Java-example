@@ -19,8 +19,8 @@ public class Movie implements Serializable {
     @Column(name = "Χρονιά")
     private int year;
 
-    @OneToMany(mappedBy = "primaryKey.movie",cascade = CascadeType.ALL)
-    private List<TS> tsList= new ArrayList<>();
+    @OneToMany(mappedBy = "primaryKey.movie",cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    private List<TS> tsList;
 
     public List<TS> getTsList() {
         return tsList;

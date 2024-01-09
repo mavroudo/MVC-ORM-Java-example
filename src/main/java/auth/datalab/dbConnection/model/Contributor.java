@@ -15,7 +15,7 @@ public class Contributor {
     @Column(length = 50,name = "Όνομα")
     private String name;
 
-    @OneToMany(mappedBy = "primaryKey.contributor", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "primaryKey.contributor", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private List<TS> tsList = new ArrayList<>( );
 
     public List<TS> getTsList() {
